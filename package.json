@@ -1,7 +1,7 @@
 {
   "name": "sug-evoting-backend",
   "version": "1.0.0",
-  "description": "Backend for SUG E-Voting App",
+  "description": "Final Backend for SUG E-Voting App",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
