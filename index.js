@@ -43,7 +43,11 @@ app.post('/api/auth/login', (req, res) => {
             return res.status(500).json({ message: "Database Error: " + err.message });
         }
         if (results.length > 0) {
-            res.json({ token: "demo-jwt-token", student: results[0] });
+            const student = results[0];
+            // CRITICAL FIX: Convert 0/1 to false/true for the Android App
+            student.has_voted = student.has_voted === 1 || student.has_voted === true;
+
+            res.json({ token: "demo-jwt-token", student: student });
         } else {
             res.status(401).json({ message: "Invalid matric number or password" });
         }
